@@ -11,9 +11,7 @@ namespace BinaryStringTask
         {
             GoodBinary count = new GoodBinary();
             string input = Console.ReadLine();
-            List<char> str = input.ToCharArray().ToList();
-            int n = str.Count;
-            string result = string.Format("Is Good Binary String : {0}", count.IsGoodBinaryString(str, n));
+            string result = $"Is Good Binary String : {count.IsGoodBinaryString(input)}";
             Console.WriteLine(result);
         }
     }
