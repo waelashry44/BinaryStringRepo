@@ -7,32 +7,29 @@ namespace BinaryStringTask
 {
     public class GoodBinary
     {
-        public bool IsGoodBinaryString(List<char> str, int n)
+        public bool IsGoodBinaryString(List<char> str)
         {
             int CountOfOne = 0;
             int CountOfZero = 0;
-            bool res = false;
-            CountOfOne = str.Count(s => s == '1');
-            CountOfZero = str.Count(s => s == '0');
-            if (CountOfOne != CountOfZero)
+        
+            for (int i = 0; i < str.Count; i++)
             {
-                res = false;
-                return res;
-            }
-
-            for (int i = 0; i < n; i++)
-            {
-                List<char> pref = str.Take(i + 1).ToList();
-                CountOfOne = pref.Count(s => s == '1');
-                CountOfZero = pref.Count(s => s == '0');
+                if (str[i] == '1')
+                {
+                    CountOfOne++;
+                }
+                else if (str[i] == '0')
+                {
+                    CountOfZero++;
+                }
+        
                 if (CountOfOne < CountOfZero)
                 {
-                    res = false;
-                    return res;
+                    return false;
                 }
             }
-            res = true;
-            return res;
+        
+            return CountOfOne == CountOfZero;
         }
     }
 }
